@@ -1,0 +1,23 @@
+# The A32 Team@cuoxianxu
+# mount point    fstype    device                               device2               flags
+/boot            emmc      /dev/block/platform/bootdevice/by-name/boot
+/recovery        emmc      /dev/block/platform/bootdevice/by-name/recovery
+/cache           ext4      /dev/block/platform/bootdevice/by-name/cache
+/data            ext4      /dev/block/platform/bootdevice/by-name/userdata          flags=encryptable=footer;quota;reservedsize=128M;checkpoint=block
+/metadata        ext4      /dev/block/platform/bootdevice/by-name/md_udc            flags=formattable
+/persist         ext4      /dev/block/platform/bootdevice/by-name/persist           flags=formattable
+/protect_f       ext4      /dev/block/platform/bootdevice/by-name/protect1          flags=backup;formattable
+/protect_s       ext4      /dev/block/platform/bootdevice/by-name/protect2          flags=backup;formattable
+/nvdata          ext4      /dev/block/platform/bootdevice/by-name/nvdata            flags=backup;formattable
+/nvcfg           ext4      /dev/block/platform/bootdevice/by-name/nvcfg             flags=backup;formattable
+/nvram           emmc      /dev/block/platform/bootdevice/by-name/nvram             flags=backup
+/proinfo         emmc      /dev/block/platform/bootdevice/by-name/proinfo           flags=backup
+/dtbo            emmc      /dev/block/platform/bootdevice/by-name/dtbo              flags=backup;flashimg
+/vbmeta          emmc      /dev/block/platform/bootdevice/by-name/vbmeta            flags=backup;flashimg
+# 可选：vbmeta_system / vbmeta_vendor 如需备份可取消注释
+# /vbmeta_system  emmc      /dev/block/platform/bootdevice/by-name/vbmeta_system    flags=backup;flashimg
+# /vbmeta_vendor  emmc      /dev/block/platform/bootdevice/by-name/vbmeta_vendor    flags=backup;flashimg
+
+# 外部存储
+/external_sd     auto      /dev/block/mmcblk1p1             /dev/block/mmcblk1
+/usb-otg         auto      /dev/block/sda1                  /dev/block/sda        flags=storage;wipeingui;removable
