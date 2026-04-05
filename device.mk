@@ -26,3 +26,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
+
+# OEM otacert
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(DEVICE_PATH)/security/releasekey
